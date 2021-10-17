@@ -158,7 +158,7 @@ def main(argv):
 
         # Try importing the telethon module to assert it has no errors
         try:
-            import telethon
+            import teleavon
         except:
             print('Packaging for PyPi aborted, importing the module failed.')
             return
@@ -186,7 +186,7 @@ def main(argv):
         with open('README.rst', 'r', encoding='utf-8') as f:
             long_description = f.read()
 
-        with open('telethon/version.py', 'r', encoding='utf-8') as f:
+        with open('teleavon/version.py', 'r', encoding='utf-8') as f:
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
