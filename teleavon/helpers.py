@@ -65,6 +65,7 @@ def within_surrogate(text, index, *, length=None):
 def strip_text(text, entities):
     """
     Strips whitespace from the given text modifying the provided entities.
+
     This assumes that there are no overlapping entities, that their length
     is greater or equal to one, and that their length is not out of bounds.
     """
@@ -255,17 +256,23 @@ class TotalList(list):
     A list with an extra `total` property, which may not match its `len`
     since the total represents the total amount of items *available*
     somewhere else, not the items *in this list*.
+
     Examples:
+
         .. code-block:: python
+
             # Teleavon returns these lists in some cases (for example,
             # only when a chunk is returned, but the "total" count
             # is available).
             result = await client.get_messages(chat, limit=10)
+
             print(result.total)  # large number
             print(len(result))  # 10
             print(result[0])  # latest message
+
             for x in result:  # show the 10 messages
                 print(x.text)
+
     """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -284,8 +291,10 @@ class _FileStream(io.IOBase):
     """
     Proxy around things that represent a file and need to be used as streams
     which may or not need to be closed.
+
     This will handle `pathlib.Path`, `str` paths, in-memory `bytes`, and
     anything IO-like (including `aiofiles`).
+
     It also provides access to the name and file size (also necessary).
     """
     def __init__(self, file, *, file_size=None):
@@ -378,3 +387,5 @@ class _FileStream(io.IOBase):
     # has its own mechanism to close the file correctly).
     def close(self, *args, **kwargs):
         pass
+
+# endregion

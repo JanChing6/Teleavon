@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """A setuptools based setup module.
+
 See:
 https://packaging.python.org/en/latest/distributing.html
 https://github.com/pypa/sampleproject
+
 Extra supported commands are:
-* gen, to generate the classes required for Teleavon to run or docs
+* gen, to generate the classes required for Telethon to run or docs
 * pypi, to generate sdist, bdist_wheel, and push to PyPi
 """
 
@@ -163,7 +165,7 @@ def main(argv):
             print('Packaging for PyPi aborted, importing the module failed.')
             return
 
-        remove_dirs = ['__pycache__', 'build', 'dist', 'Teleavon.egg-info']
+        remove_dirs = ['__pycache__', 'build', 'dist', 'Telethon.egg-info']
         for root, _dirs, _files in os.walk(LIBRARY_DIR, topdown=False):
             # setuptools is including __pycache__ for some reason (#1605)
             if root.endswith('/__pycache__'):
@@ -174,7 +176,7 @@ def main(argv):
         run('python3 setup.py sdist', shell=True)
         run('python3 setup.py bdist_wheel', shell=True)
         run('twine upload dist/*', shell=True)
-        for x in ('build', 'dist', 'Teleavon.egg-info'):
+        for x in ('build', 'dist', 'Telethon.egg-info'):
             shutil.rmtree(x, ignore_errors=True)
 
     else:
@@ -190,16 +192,16 @@ def main(argv):
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
-            name='Teleavon',
+            name='Telethon',
             version=version,
             description="Full-featured Telegram client library for Python 3",
             long_description=long_description,
 
-            url='https://github.com/TeamEviral/Teleavon',
-            download_url='https://github.com/TeamEviral/Teleavon/releases',
+            url='https://github.com/LonamiWebs/Telethon',
+            download_url='https://github.com/LonamiWebs/Telethon/releases',
 
-            author='E V I R A L',
-            author_email='wbavishek2018@gmail',
+            author='Lonami Exo',
+            author_email='totufals@hotmail.com',
 
             license='MIT',
 
