@@ -61,10 +61,10 @@ DOCS_OUT = Path('docs')
 
 
 def generate(which, action='gen'):
-    from telethon_generator.parsers import\
+    from teleavon_generator.parsers import\
         parse_errors, parse_methods, parse_tl, find_layer
 
-    from telethon_generator.generators import\
+    from teleavon_generator.generators import\
         generate_errors, generate_tlobjects, generate_docs, clean_tlobjects
 
     layer = next(filter(None, map(find_layer, TLOBJECT_IN_TLS)))
