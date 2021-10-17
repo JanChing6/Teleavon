@@ -174,7 +174,7 @@ def main(argv):
         run('python3 setup.py sdist', shell=True)
         run('python3 setup.py bdist_wheel', shell=True)
         run('twine upload dist/*', shell=True)
-        for x in ('build', 'dist', 'Telethon.egg-info'):
+        for x in ('build', 'dist', 'Teleavon.egg-info'):
             shutil.rmtree(x, ignore_errors=True)
 
     else:
@@ -190,7 +190,7 @@ def main(argv):
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
-            name='Telethon',
+            name='Teleavon',
             version=version,
             description="Full-featured Telegram client library for Python 3",
             long_description=long_description,
