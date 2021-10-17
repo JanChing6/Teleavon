@@ -156,14 +156,14 @@ def main(argv):
         # (Re)generate the code to make sure we don't push without it
         generate(['tl', 'errors'])
 
-        # Try importing the telethon module to assert it has no errors
+        # Try importing the teleavon module to assert it has no errors
         try:
             import teleavon
         except:
             print('Packaging for PyPi aborted, importing the module failed.')
             return
 
-        remove_dirs = ['__pycache__', 'build', 'dist', 'Telethon.egg-info']
+        remove_dirs = ['__pycache__', 'build', 'dist', 'Teleavon.egg-info']
         for root, _dirs, _files in os.walk(LIBRARY_DIR, topdown=False):
             # setuptools is including __pycache__ for some reason (#1605)
             if root.endswith('/__pycache__'):
